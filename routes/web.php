@@ -20,8 +20,8 @@ Route::get('list-product', [ProductController::class, 'showProduct']);
 //Gửi dữ liệu qua controller
 //Slug
 //http://127.0.0.1:8000/get-product/4
-Route::get('get-product/{id}/{name?}', [ProductController::class, 'getProduct']);
+//Route::get('get-product/{id}/{name?}', [ProductController::class, 'getProduct']);
 
 //Params
 //http://127.0.0.1:8000/update-product?id=4&name=iphone
-Route::get('update-product', [ProductController::class, 'updateProduct']);
+//Route::get('update-product', [ProductController::class, 'updateProduct']);
