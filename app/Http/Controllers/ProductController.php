@@ -128,13 +128,13 @@ class ProductController extends Controller
         //DB::table('users')->where('songaynghi', '>', '15')->delete();
     }
 
-    public function getProduct($id, $name = ''){
-        echo $id;
-        echo $name;
-    }
+    // public function getProduct($id, $name = ''){
+    //     echo $id;
+    //     echo $name;
+    // }
 
-    public function updateProduct(Request $request){
-        echo $request->id;
-        echo $request->name;
-    }
+    // public function updateProduct(Request $request){
+    //     echo $request->id;
+    //     echo $request->name;
+    // }
 }
