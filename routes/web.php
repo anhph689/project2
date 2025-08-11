@@ -10,9 +10,9 @@ Route::get('/', function(){
     echo 'Trang chủ';
 });
 
-Route::get('test', function(){
-    echo "abc";
-});
+// Route::get('test', function(){
+//     echo "abc";
+// });
 
 //Điều hướng qua action của controller
 //php artisan make:controller TenController
@@ -39,4 +39,21 @@ Route::group(['prefix' => 'users', 'as' => 'users.'], function(){
     Route::get('delete-users/{userId}', [UserController::class, 'deleteUsers'])->name('deleteUsers');
     Route::get('update-users/{userId}', [UserController::class, 'updateUsers'])->name('updateUsers');
     Route::post('update-users', [UserController::class, 'updatePostUsers'])->name('updatePostUsers');
+});
+
+Route::get('test', function(){
+    return view('test')->with([
+        'var1' => '1',
+        'var2' => [
+            'Apple', 'Orange','Mango'
+        ]
+    ]);
+});
+
+Route::get('test2', function(){
+    return view('admin.products.list-product');
+});
+
+Route::get('test3', function(){
+    return view('admin.products.add-product');
 });
