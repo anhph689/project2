@@ -75,5 +75,9 @@ Route::group([
         Route::get('/', [ProductController::class, 'listProduct'])->name('listProduct');
         Route::get('add-product', [ProductController::class, 'addProduct'])->name('addProduct');
         Route::post('add-product', [ProductController::class, 'addPostProduct'])->name('addPostProduct');
+        Route::delete('delete-product', [ProductController::class, 'deleteProduct'])->name('deleteProduct');
+        Route::get('detail-product/{idProduct}', [ProductController::class, 'detailProduct'])->name('detailProduct');
+        Route::get('update-product/{idProduct}', [ProductController::class, 'updateProduct'])->name('updateProduct');
+        Route::patch('update-product/{idProduct}', [ProductController::class, 'updatePatchProduct'])->name('updatePatchProduct');
     });
 });

@@ -44,8 +44,9 @@
                             <img class="img-product" src="{{asset($value->image)}}" alt="">
                         </td>
                         <td>
-                            <button class="btn btn-warning">Sửa</button>
-                            <button class="btn btn-danger">Xóa</button>
+                            <a href="{{route('admin.products.detailProduct', $value->id)}}" class="btn btn-info">Chi tiết</a>
+                            <a href="{{route('admin.products.updateProduct', $value->id)}}" class="btn btn-warning">Sửa</a>
+                            <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" data-bs-id="{{$value->id}}">Xóa</button>
                         </td>
                     </tr>
                 @endforeach
@@ -53,8 +54,39 @@
         </table>
         {{$listProduct->links('pagination::bootstrap-5')}}
     </div>
+    <!-- Modal -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel">Cảnh báo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="" method="post" id="formDelete">
+                    @method('delete')
+                    @csrf
+                    <div class="modal-body">
+                        <p class="text-danger">Bạn có muốn xóa không?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                        <button type="submit" class="btn btn-danger">Xác nhận xóa</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @push('scripts')
+    <script>
+        var exampleModal = document.getElementById('deleteModal')
+        exampleModal.addEventListener('show.bs.modal', function (event) {
+            var button = event.relatedTarget
+            var id = button.getAttribute('data-bs-id')
 
+            let formDelete = document.getElementById('formDelete')
+            formDelete.setAttribute('action', '{{route("admin.products.deleteProduct")}}' + "?idproduct=" + id)
+        })
+    </script>
 @endpush
