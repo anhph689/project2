@@ -13,5 +13,8 @@
         <a href="#" class="list-group-item ">
             Thống kê
         </a>
+        <a href="{{route('logout')}}" class="list-group-item ">
+            Đăng xuất
+        </a>
     </div>
 </div>

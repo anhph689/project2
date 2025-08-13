@@ -63,6 +63,8 @@ Route::get('/', function(){
 Route::get('login', [AuthenticationController::class, 'login'])->name('login');
 Route::post('post-login', [AuthenticationController::class, 'postLogin'])->name('postLogin');
 
+Route::get('logout', [AuthenticationController::class, 'logout'])->name('logout');
+
 //http://127.0.0.1:8000/admin/products/*
 //CRUD product
 //Route => Controller => Model
