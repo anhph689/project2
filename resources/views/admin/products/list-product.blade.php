@@ -18,9 +18,7 @@
 @section('content')
     <div class="p-4" style="min-height: 800px;">
         @if (session('message'))
-            <div class="alert alert-primary" role="alert">
-                {{session('message')}}
-            </div>
+            <p class="text-success">{{session('message')}}</p>
         @endif
         <h4 class="text-primary mb-4">Danh sách sản phẩm</h4>
         <a href="{{route('admin.products.addProduct')}}" class="btn btn-info">Thêm mới</a>

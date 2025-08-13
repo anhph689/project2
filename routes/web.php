@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 //use App\Http\Controllers\ProductController;
 //use App\Http\Controllers\UserController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\AuthenticationController;
 
 //http://127.0.0.1:8000/ base url
 //GET, POST, PUT, PATCH, DELETE (method http)
@@ -58,6 +59,9 @@ Route::get('/', function(){
 // Route::get('test3', function(){
 //     return view('admin.products.add-product');
 // });
+
+Route::get('login', [AuthenticationController::class, 'login'])->name('login');
+Route::post('post-login', [AuthenticationController::class, 'postLogin'])->name('postLogin');
 
 //http://127.0.0.1:8000/admin/products/*
 //CRUD product
